@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+   <bean id="per"  class="com.nt.beans.Person">
+<!--        <property name="pid"  value="1001"/>  ctrl+shift+c       -->
+      <!--  <property name="pname" value="raja"/>
+       <property name="paddrs"  value="hyd"/> -->
+<!--        <property name="income"  value="5555.75f"/> -->
+   </bean>
+   
+   
+   <bean id="per1"  class="com.nt.beans.Person1">
+       <constructor-arg  name="pid" value="2001"/>
+       <constructor-arg name="pname" value="suresh"/>
+    <!--    <constructor-arg name="paddrs"  value="delhi"/> -->
+      <!--  <constructor-arg name="income" value="555455"/> -->
+   </bean>
+
+
+</beans>

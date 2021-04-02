@@ -1,24 +1,22 @@
-//SetterInjectionTest.java
+//ConstructorInjectionTest.java
 package com.nt.test;
 
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.FileSystemResource;
 
-import com.nt.beans.WishMessageGenerator;
+import com.nt.beans.A;
 
-public class SetterInjectionTest {
+public class CyclicInjectionTest {
 
 	public static void main(String[] args) {
 	   //Locate and hold spring bean cfg file
 		FileSystemResource res=new FileSystemResource("src/com/nt/cfgs/applicationContext.xml");
 		//create IOC container
 		XmlBeanFactory factory=new XmlBeanFactory(res);
-		//get TargetBean class object
-		Object obj=factory.getBean("wmg");
-		//type casting
-		WishMessageGenerator generator=(WishMessageGenerator)obj;
-		//invoke the b.method
-		String result=generator.generateWishMesage("raja");
-		System.out.println("Result ::"+result);  
+		//get Bean class object
+		A  a=(A)factory.getBean("a1");
+		System.out.println(a);
+		
+	
 	}
 }

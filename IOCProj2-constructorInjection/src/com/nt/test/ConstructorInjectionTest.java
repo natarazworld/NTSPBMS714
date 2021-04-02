@@ -1,4 +1,4 @@
-//SetterInjectionTest.java
+//ConstructorInjectionTest.java
 package com.nt.test;
 
 import org.springframework.beans.factory.xml.XmlBeanFactory;
@@ -6,7 +6,7 @@ import org.springframework.core.io.FileSystemResource;
 
 import com.nt.beans.WishMessageGenerator;
 
-public class SetterInjectionTest {
+public class ConstructorInjectionTest {
 
 	public static void main(String[] args) {
 	   //Locate and hold spring bean cfg file
@@ -20,5 +20,7 @@ public class SetterInjectionTest {
 		//invoke the b.method
 		String result=generator.generateWishMesage("raja");
 		System.out.println("Result ::"+result);  
+		
+	
 	}
 }
