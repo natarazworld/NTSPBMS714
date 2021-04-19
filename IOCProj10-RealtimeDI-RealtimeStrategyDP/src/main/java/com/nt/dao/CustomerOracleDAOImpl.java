@@ -8,13 +8,13 @@ import javax.sql.DataSource;
 
 import com.nt.bo.CustomerBO;
 
-public class CustomerDAOImpl implements ICustomerDAO {
+public final class CustomerOracleDAOImpl implements ICustomerDAO {
 	private  static final String  REALTIMEDI_CUSTOMER_INSERT_QUERY="INSERT INTO REALTIMEDI_CUSTOMER VALUES(CUSTID_SEQ.NEXTVAL,?,?,?,?,?,?)";
 	private DataSource ds;
 
 	 // alt+shift+s ,o
-	public CustomerDAOImpl(DataSource ds) {
-		System.out.println("CustomerDAOImpl:: 1 -param constructor");
+	public CustomerOracleDAOImpl(DataSource ds) {
+		System.out.println("CustomerOracleDAOImpl:: 1 -param constructor");
 		this.ds = ds;
 	}
 

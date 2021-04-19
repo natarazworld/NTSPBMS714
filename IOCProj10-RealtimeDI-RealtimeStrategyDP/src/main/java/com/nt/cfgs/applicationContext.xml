@@ -4,22 +4,34 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 	
-	 <!-- DataSource cfg -->
-	 <bean id="dmds"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	 <!-- DataSources cfg -->
+	 <bean id="oraDmds"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	     <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
 	     <property name="url"  value="jdbc:oracle:thin:@localhost:1521:xe"/>
 	     <property name="username" value="system"/>
 	     <property name="password" value="manager"/>
 	 </bean>
+	 <bean id="mysqlDmds"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	     <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+	     <property name="url"  value="jdbc:mysql:///ntspbms714db"/>
+	     <property name="username" value="root"/>
+	     <property name="password" value="root"/>
+	 </bean>
 	 
-	 <!-- DAO class cfg -->
-	 <bean id="custDAO"   class="com.nt.dao.CustomerDAOImpl">
-	       <constructor-arg name="ds"  ref="dmds"/>
+	 
+	 <!-- DAO classes cfg -->
+	 <bean id="oraCustDAO"   class="com.nt.dao.CustomerOracleDAOImpl">
+	       <constructor-arg name="ds"  ref="oraDmds"/>
+	 </bean>
+	 
+	  <bean id="mysqlCustDAO"   class="com.nt.dao.CustomerMySQLDAOImpl">
+	       <constructor-arg name="ds"  ref="mysqlDmds"/>
 	 </bean>
 	 
 	 <!-- service class cfg -->
 	 <bean id="custService"  class="com.nt.service.CustomerMgmtServiceImpl">
-	      <constructor-arg name="dao" ref="custDAO"/>
+	      <constructor-arg name="dao" ref="oraCustDAO"/>
+	       <!-- <constructor-arg name="dao" ref="mysqlCustDAO"/> --> 
 	 </bean>
 	 
 	 <!-- Controller class cfg -->
