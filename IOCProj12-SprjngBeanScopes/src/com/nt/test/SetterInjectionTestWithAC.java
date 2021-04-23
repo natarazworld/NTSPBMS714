@@ -5,18 +5,16 @@ import java.util.Arrays;
 
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.nt.beans.Printer;
 import com.nt.beans.WishMessageGenerator;
 
-public class SetterInjectionTest {
+public class SetterInjectionTestWithAC {
 
 	public static void main(String[] args) {
 		//create IOC container
-		DefaultListableBeanFactory factory=new DefaultListableBeanFactory();
-		XmlBeanDefinitionReader reader=new XmlBeanDefinitionReader(factory);
-		reader.loadBeanDefinitions("com/nt/cfgs/applicationContext.xml");
-		System.out.println("IOC container created...");
+		ClassPathXmlApplicationContext ctx=new ClassPathXmlApplicationContext("com/nt/cfgs/applicationContext.xml");
 		
 		/*	//get Target Bean class obj ref
 			WishMessageGenerator generator1=factory.getBean("wmg",WishMessageGenerator.class);

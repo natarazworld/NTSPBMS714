@@ -6,11 +6,11 @@ https://www.springframework.org/schema/beans/spring-beans.xsd">
 
   <!-- Cfg Dependent classes -->
   <bean id="dtdc"  class="com.nt.comp.DTDC"/>
-  <bean id="bDart"  class="com.nt.comp.BlueDart"/>
+  <bean id="bDart"  class="com.nt.comp.BlueDart"  scope="prototype"/>
   <bean id="fEx"  class="com.nt.comp.FedEx"/>
   
   <!-- Cfg target class -->
-  <bean id="fpkt"  class="com.nt.comp.Flipkart">
+  <bean id="fpkt"  class="com.nt.comp.Flipkart"  scope="singleton">
        <property name="courier" ref="bDart"/>
   </bean>
 

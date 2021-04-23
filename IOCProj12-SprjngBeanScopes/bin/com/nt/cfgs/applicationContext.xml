@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans  default-lazy-init="true" xmlns="http://www.springframework.org/schema/beans"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.springframework.org/schema/beans
 https://www.springframework.org/schema/beans/spring-beans.xsd">
@@ -8,17 +8,12 @@ https://www.springframework.org/schema/beans/spring-beans.xsd">
   <bean id="dt"  class="java.util.Date"/>
   
   <!-- Target spring bean cfg -->
-  <bean id="wmg"  class="com.nt.beans.WishMessageGenerator"  scope="prototype">
+  <bean id="wmg"  class="com.nt.beans.WishMessageGenerator"  scope="singleton"  lazy-init="default">
       <property name="date"  ref="dt"/>
   </bean>
   
   
-<!-- <bean id="p1"  class="com.nt.beans.Printer"/>
+<bean id="p1"  class="com.nt.beans.Printer"  scope="prototype"  factory-method="getInstance"/>
 
-<bean id="p2"  class="com.nt.beans.Printer"/> -->
-
-<!-- <bean id="p1"  class="com.nt.beans.Printer" factory-method="getInstance"/>
-
-<bean id="p2"  class="com.nt.beans.Printer"  factory-method="getInstance"/> -->
 
 </beans>
