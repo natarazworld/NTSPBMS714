@@ -5,6 +5,7 @@ import java.util.Scanner;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.env.Environment;
 
 import com.nt.controller.MainController;
 import com.nt.vo.CustomerVO;
@@ -42,5 +43,10 @@ public class RealtimeDITest {
 			 //e.printStackTrace();
 			 System.out.println("Internal Problem --Try Again:::"+e.getMessage());
 		 }
+		 Environment env=ctx.getEnvironment();
+		 System.out.println(env.getClass()+"  "+env.getRequiredProperty("os.name"));
+		 //close container
+		 ctx.close();
+		
 	}
 }

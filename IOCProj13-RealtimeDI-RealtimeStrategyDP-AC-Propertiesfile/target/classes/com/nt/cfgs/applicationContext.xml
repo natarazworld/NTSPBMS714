@@ -16,7 +16,11 @@
 	 
 	 <!-- DAO classes cfg -->
 	 <bean id="oraCustDAO"   class="com.nt.dao.CustomerOracleDAOImpl">
-	       <constructor-arg name="ds"  ref="dmds"/>
+	      <property name="osver1" value="${os.version}"/>
+	      <property name="osname" value="${os.name}"/>
+	      <property name="username" value="${user.name}"/>
+	      <property name="pathdata" value="${Path}"/>
+	       <constructor-arg name="ds1"  ref="dmds"/>
 	 </bean>
 	 
 	  <bean id="mysqlCustDAO"   class="com.nt.dao.CustomerMySQLDAOImpl">
@@ -33,7 +37,7 @@
 	         <constructor-arg  name="service" ref="custService"/>
 	 </bean>
 	
-	<context:property-placeholder location="com/nt/commons/jdbc.properties"/>
+	<context:property-placeholder location="com/nt/commons/jdbc.properties,com/nt/commons/jdbc1.properties"/>
 
 
 </beans>

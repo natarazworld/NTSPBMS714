@@ -11,16 +11,39 @@ import com.nt.bo.CustomerBO;
 public final class CustomerOracleDAOImpl implements ICustomerDAO {
 	private  static final String  REALTIMEDI_CUSTOMER_INSERT_QUERY="INSERT INTO REALTIMEDI_CUSTOMER VALUES(CUSTID_SEQ.NEXTVAL,?,?,?,?,?,?)";
 	private DataSource ds;
+	private String  osver;
+	private String  osname;
+	private String  username;
+	private  String pathdata;
+	
+	public void setPathdata(String pathdata) {
+		this.pathdata = pathdata;
+	}
+	//setter methods for setter injectin
+	public void  setOsver1(String osver) {
+		this.osver=osver;
+	}
+	public void  setOsname(String osname) {
+		this.osname=osname;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+	
 
 	 // alt+shift+s ,o
-	public CustomerOracleDAOImpl(DataSource ds) {
+	public CustomerOracleDAOImpl(DataSource ds1) {
 		System.out.println("CustomerOracleDAOImpl:: 1 -param constructor");
-		this.ds = ds;
+		this.ds = ds1;
 	}
 
 
 	@Override
 	public int insert(CustomerBO bo) throws Exception {
+		System.out.println(osver+"     "+username+"    "+pathdata+"  ---  "+osname);
 		Connection con=null;
 		PreparedStatement ps=null;
 		int count=0;
