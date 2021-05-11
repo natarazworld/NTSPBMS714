@@ -5,34 +5,18 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component("fpkt")
 public final class Flipkart {
 	
 	@Autowired
-	@Qualifier("fEx")
+	@Qualifier("fedEx")
 	private  Courier courier;
 	
-/*	@Autowired
-	public Flipkart(@Qualifier("dtdc") Courier courier) {
-		this.courier=courier;
-		System.out.println("Flipkart:: 1-param constructor");
+	public Flipkart() {
+		System.out.println("Flipkart:0-param consturctor");
 	}
-	
-	@Autowired
-	@Qualifier("fFlight")
-	public  void   assign(Courier courier) {
-		System.out.println("Flipkart.assign(-)");
-		this.courier=courier;
-	}
-	
-	@Autowired
-	@Qualifier("bDart")
-	public void setCourier(Courier courier) {
-		System.out.println("Flipkart.setCourier(-)");
-		 this.courier=courier;
-	} */
-	
-	
 	
 	//b,method
 	public  String  shopping(String [] items, float[] prices) {

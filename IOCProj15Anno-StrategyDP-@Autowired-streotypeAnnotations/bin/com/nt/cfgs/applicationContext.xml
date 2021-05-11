@@ -7,16 +7,7 @@
 		http://www.springframework.org/schema/context
 		 http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-  <!-- Cfg Dependent classes -->
-  <bean id="dtdc"  class="com.nt.comp.DTDC"  />
-   <bean id="bDart"  class="com.nt.comp.BlueDart" />
-  <bean id="fEx"  class="com.nt.comp.FedEx"/> 
-  <bean id="fFlight"  class="com.nt.comp.FirstFlight"/> 
-  
-  
-  <!-- Cfg target class -->
-  <bean id="fpkt"  class="com.nt.comp.Flipkart" />
-
-   <context:annotation-config/>
+   <context:component-scan base-package="com.nt.comp"/>
+ 
 
 </beans>

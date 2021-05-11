@@ -10,7 +10,9 @@
   <!-- Cfg Dependent classes -->
   <bean id="dtdc"  class="com.nt.comp.DTDC"  />
    <bean id="bDart"  class="com.nt.comp.BlueDart" />
-  <bean id="fEx"  class="com.nt.comp.FedEx"/>
+  <bean id="fEx"  class="com.nt.comp.FedEx"/> 
+  <bean id="fFlight"  class="com.nt.comp.FirstFlight"/> 
+  
   
   <!-- Cfg target class -->
   <bean id="fpkt"  class="com.nt.comp.Flipkart" />
