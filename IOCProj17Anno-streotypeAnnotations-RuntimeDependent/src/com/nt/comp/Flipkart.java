@@ -1,14 +1,29 @@
 package com.nt.comp;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Component;
 
 @Component("fpkt")
+
+/*@PropertySources(value= {@PropertySource("com/nt/commons/info.properties"),
+                                                         @PropertySource("com/nt/commons/info1.properties")
+                                                  }
+                                       )*/
+
+/*@PropertySource("com/nt/commons/info.properties")
+@PropertySource("com/nt/commons/info1.properties")
+*/
+
+@PropertySource(value={"com/nt/commons/info.properties","com/nt/commons/info1.properties"})
+
 //@Scope("prototype")
 //@Component
 public final class Flipkart {
@@ -16,13 +31,23 @@ public final class Flipkart {
 	@Autowired
 	@Qualifier("cr")
 	private  Courier courier;
+	@Autowired
+	private  Date  myDate;
 	
-	/*	@Value("${courier.id}")
-		private String id;
-	*/
+	/*@Value("https://www.flipkart.com")
+	private  String url;
+	@Value("30")
+	private int age;  */
 	
-	@Value("${my.name}")
-	private  String  name;
+	@Value("${fpt.info.url}")
+	private  String url;
+	@Value("${fpt.info.age}")
+	private int age;  
+	
+	@Value("${os.name}")   //injects system property value
+	private String os;
+	@Value("${Path}")   // injects PATH env.. variable value 
+	private  String  pathValue;
 	
 	public Flipkart() {
 		System.out.println("Flipkart:0-param consturctor");
@@ -30,7 +55,8 @@ public final class Flipkart {
 	
 	//b,method
 	public  String  shopping(String [] items, float[] prices) {
-		System.out.println("Flipkart.shopping()::::"+name);
+		System.out.println("Flipkart.shopping()::::"+url +"     "+age+"   "+myDate);
+		System.out.println("Flipkart.shopping():::"+os+"......."+pathValue);
 		float billAmt=0.0f;
 		for(float p:prices)
 			billAmt+=p;  // billAmt=billAmt+p

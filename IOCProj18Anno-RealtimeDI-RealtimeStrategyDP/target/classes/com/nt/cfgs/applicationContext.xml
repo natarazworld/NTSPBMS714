@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- cfg properties file -->
+	<context:property-placeholder location="com/nt/commons/jdbc.properties"/>
+	
+	 <!-- DataSources cfg -->
+	 <bean id="drds"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	     <property name="driverClassName" value="${jdbc.driver}"/>
+	     <property name="url"  value="${jdbc.url}"/>
+	     <property name="username" value="${db.user}"/>
+	     <property name="password" value="${db.pwd}"/>
+	 </bean>
+	 
+	 <!-- component scanning -->
+	 <context:component-scan base-package="com.nt"/>
+	 
+	 <!--  alias name to  DAO -->
+	 <alias name="${choose.dao}" alias="dao"/>
+	 
+	 
+	 
+
+
+</beans>

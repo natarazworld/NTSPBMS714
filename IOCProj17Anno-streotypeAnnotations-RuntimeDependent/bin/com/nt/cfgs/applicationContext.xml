@@ -8,11 +8,17 @@
 		 http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 <!-- To enable component scan on spring beans -->
-   <context:component-scan base-package="com.nt.comp"/>
+   <!-- <context:component-scan base-package="com.nt.comp,com.nt.comp1"/> -->
+   <context:component-scan base-package="com.nt"/> 
    
- 
-   
+ <!-- cfg properties  file -->
+   <context:property-placeholder location="com/nt/commons/info.properties"/> 
+  
    <alias name="fFlight" alias="cr"/>
+   
+   <bean id="dt"  class="java.util.Date">
+       <property name="date"  value="${dt.day}"/>
+   </bean>
  
 
 </beans>
