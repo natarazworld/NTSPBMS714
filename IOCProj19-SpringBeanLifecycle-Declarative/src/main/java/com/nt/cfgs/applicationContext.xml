@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <!-- Spring bean cfg -->
+    <bean id="voter"  class="com.nt.beans.VoterVerifier" init-method="myInit"  destroy-method="myDestroy"  >
+             <property name="name" value="raja"/>
+             <property name="age"  value="10"/>
+    </bean>
+
+
+</beans>
