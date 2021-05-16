@@ -5,7 +5,7 @@
 	 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
    <!-- Spring bean cfg -->
-    <bean id="voter"  class="com.nt.beans.VoterVerifier" init-method="myInit"  destroy-method="myDestroy"  >
+    <bean id="voter"  class="com.nt.beans.VoterVerifier" init-method="myInit"  destroy-method="myDestroy">
              <property name="name" value="raja"/>
              <property name="age"  value="10"/>
     </bean>
