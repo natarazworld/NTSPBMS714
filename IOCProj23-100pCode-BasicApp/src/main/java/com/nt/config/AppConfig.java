@@ -16,8 +16,9 @@ public class AppConfig {
 		System.out.println("AppConfig:: 0-param constructor");
 	}
 	
-	@Bean(name="ldt")
+	//@Bean(name="ldt")
 	//@Scope("prototype")
+	@Bean
 	public    LocalDateTime  createLocalDateTime() {
 		System.out.println("AppConfig.createLocalDateTime() (@Bean method)");
 		LocalDateTime  ldt=LocalDateTime.now();  //gives system date and time
