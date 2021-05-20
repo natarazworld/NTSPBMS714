@@ -1,9 +1,19 @@
 package com.nt.beans;
 
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Cricketer {
+public class Cricketer implements ApplicationContextAware {
 	 private String batId;
+	 private ApplicationContext ctx;
+	 
+	 @Override
+		public void setApplicationContext(ApplicationContext ctx) throws BeansException {
+			System.out.println("Cricketer.setApplicationContext(-)");
+			this.ctx=ctx;
+		}
 	 
 	public Cricketer(String batId) {
 		this.batId=batId;
@@ -24,13 +34,12 @@ public class Cricketer {
 	
 	public  void batting() {
 		System.out.println("Cricketer.batting()");
-		//create an extra IOC container
-		ClassPathXmlApplicationContext ctx=new ClassPathXmlApplicationContext("com/nt/cfgs/applicationContext.xml");
-		 System.out.println("Cricketer:: 2nd IOC container creation");
 		//perform Dependency Lookup to get Dependent class object
 		CricketBat bat=ctx.getBean(batId,CricketBat.class);
 		//use Dependent class obj
 		int runs=bat.scoreRuns();
 		System.out.println("Crickesr is doing batting and his current score is :: "+runs);
 	}
+
+	
 }

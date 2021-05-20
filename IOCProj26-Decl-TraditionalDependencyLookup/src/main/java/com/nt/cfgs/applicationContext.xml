@@ -6,10 +6,13 @@
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
   <!-- Cfg dependent spring bean -->
-  <bean id="bat2"  class="com.nt.beans.CricketBat" lazy-init="true"/>
+  <bean id="bat1"  class="com.nt.beans.CricketBat" lazy-init="true"/>
   
   <!-- cfg Target spring bean -->
   <bean id="cktr" class="com.nt.beans.Cricketer"  lazy-init="true">
-      <constructor-arg  name="batId" value="bat2"/>  <!-- It is dependent class bean id injection -->
+      <constructor-arg  name="batId"  value="bat2"/>  <!-- It is dependent class bean id injection -->
+       <!-- <constructor-arg name="batId">
+          <idref  bean="bat2"/>
+      </constructor-arg> -->
   </bean>
 </beans>
