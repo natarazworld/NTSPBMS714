@@ -4,11 +4,14 @@ package com.nt.beans;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("wmg")
 public class WishMessageGenerator {
-	@Autowired  // Field injection
+	
+	 @Autowired // Field injection
+	 @Qualifier("ldt1")
 	private LocalDateTime date;
 	
 	public WishMessageGenerator() {
