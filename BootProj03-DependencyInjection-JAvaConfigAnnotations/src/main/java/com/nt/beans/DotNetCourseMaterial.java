@@ -1,9 +1,8 @@
 package com.nt.beans;
 
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
+import javax.inject.Named;
 
-@Component("dotNet")
+@Named("dotNet")
 //@Primary
 public final class DotNetCourseMaterial implements ICourseMaterial {
 	

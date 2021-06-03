@@ -1,14 +1,15 @@
 package com.nt.beans;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import javax.annotation.Resource;
+import javax.inject.Inject;
+import javax.inject.Named;
 
-@Component("stud")
+@Named("stud")
 public final class Student {
-	@Autowired
+	//@Inject
+	@Resource(name="courseId")
 	//@Qualifier("${course.choose}")
-	@Qualifier("courseId")
+	//@Named("courseId")
 	private  ICourseMaterial  material;  // HAS-A property
 	
 	public  void  preparation(String examName) {
