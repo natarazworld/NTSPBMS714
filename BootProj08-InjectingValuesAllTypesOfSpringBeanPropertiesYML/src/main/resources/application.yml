@@ -1,0 +1,36 @@
+# using yml
+emp: 
+   info:
+     # simple properties 
+      name: raja
+      id: 1001
+      # array
+      nickNames: 
+          - kanna
+          - chinna
+          - munna
+       # List    
+      teamMembers:
+            - ravi
+            - ramesh
+            - ravi
+            #Set
+      phone-numbers: 
+            - 999999999
+            - 999988888
+            - 777777777
+            #Map
+      idDetails: 
+           adharNo: 5453434545
+           panNo: AJXX45454
+           voterId: 45435435435
+           #HAS- A property
+      comp-details:
+           title: HCL
+           location: hyd
+           size: 2000      
+                 
+                  
+                 
+      
+      
