@@ -1,36 +1,25 @@
-# using yml
-emp: 
-   info:
-     # simple properties 
-      name: raja
-      id: 1001
-      # array
-      nickNames: 
-          - kanna
-          - chinna
-          - munna
-       # List    
-      teamMembers:
-            - ravi
-            - ramesh
-            - ravi
-            #Set
-      phone-numbers: 
-            - 999999999
-            - 999988888
-            - 777777777
-            #Map
-      idDetails: 
-           adharNo: 5453434545
-           panNo: AJXX45454
-           voterId: 45435435435
-           #HAS- A property
-      comp-details:
-           title: HCL
-           location: hyd
-           size: 2000      
-                 
-                  
-                 
-      
-      
+emp:
+  info:
+    comp-details:
+      location: hyd
+      size: 200
+      title: HCL Technologies
+    id: 1001
+    id-details:
+      adharNo: 534545555345454353
+      panNo: AJXPR354566
+      voterId: 553545677666666
+    name: rajesh
+    nick-names:
+    - chinna
+    - kanna
+    - munna
+    phone-numbers:
+    - 88888888888
+    - 77777777777
+    - 667777777777
+    
+    team-members:
+    - ravi
+    - srinu
+    - ravi

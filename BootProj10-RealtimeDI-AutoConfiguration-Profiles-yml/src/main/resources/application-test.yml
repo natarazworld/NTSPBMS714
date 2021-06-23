@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    type: oracle.ucp.jdbc.PoolDataSource
+    url: jdbc:mysql:///NTSPBMS714DB
+    username: root
