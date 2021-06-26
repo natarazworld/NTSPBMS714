@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 import com.nt.bo.EmployeeBO;
 
 @Repository("empDAO1")
-@Profile({"dev","test"})
+@Profile({"dev","test","default"})
 public class MySQLEmployeeDAOImpl implements IEmployeeDAO {
 	private static final String GET_EMPS_BY_DEGS="SELECT EMPNO,ENAME,JOB,SAL,DEPTNO,MGR FROM EMP  WHERE JOB IN";
 	@Autowired

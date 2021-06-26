@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,7 +25,7 @@ public class BootProj04RealtimeDiAutoConfigurationApplication {
 	private Environment env;
 	
 	@Bean(name="cds")
-	@Profile("uat")
+	@Profile({"uat","default"})
 	public  ComboPooledDataSource  createC3PODs() throws Exception {
 		System.out.println("BootProj04RealtimeDiAutoConfigurationApplication.createC3PODs()");
 		ComboPooledDataSource  cds=new ComboPooledDataSource();
@@ -34,6 +35,19 @@ public class BootProj04RealtimeDiAutoConfigurationApplication {
 		cds.setPassword(env.getRequiredProperty("spring.datasource.password"));
 		return cds;
 	}
+	
+	@Bean(name="tcp")
+	@Profile("default")
+	public DataSource    createTomcatCPDs() throws Exception {
+		System.out.println("BootProj04RealtimeDiAutoConfigurationApplication.createTomcatCPDs()");
+		DataSource tcpds=new DataSource();
+		tcpds.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		tcpds.setUrl("jdbc:mysql:///NTSPBMS714DB");
+		tcpds.setUsername("root");
+		tcpds.setPassword("root");
+		return tcpds;
+	}
+
 
 	public static void main(String[] args) {
 		//read inputs from enduser
