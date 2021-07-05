@@ -1,5 +1,7 @@
 package com.nt.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +22,26 @@ public class CoronaVaccineMgmtServiceImpl implements ICoronaVaccineMgmtService {
 		    savedVaccine=coronaRepo.save(vaccine);
 		return savedVaccine!=null?"Vaccine registred/updated successfully with "+savedVaccine.getRegNo():" Vaccine registration/updation failed";
 	}
+
+	@Override
+	public Iterable<CoronaVaccine> registerInBatch(Iterable<CoronaVaccine> vaccines) {
+		     if(vaccines!=null)
+	  		     return  coronaRepo.saveAll(vaccines);
+		     else
+		    	 throw new IllegalArgumentException("batch insertion not done");
+	}
+	
+	@Override
+	public long getVaccinesCount() {
+			return coronaRepo.count();
+	}
+	
+	
+	@Override
+	public boolean checkVaccineAvailabilityByRegNo(long regNo) {
+		return coronaRepo.existsById(regNo);
+	}
+	
+	
 
 }
