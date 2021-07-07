@@ -1,6 +1,7 @@
 package com.nt.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,21 @@ public class CoronaVaccineMgmtServiceImpl implements ICoronaVaccineMgmtService {
 	@Override
 	public boolean checkVaccineAvailabilityByRegNo(long regNo) {
 		return coronaRepo.existsById(regNo);
+	}
+	
+	@Override
+	public Iterable<CoronaVaccine> fetchAllDetails() {
+		return coronaRepo.findAll();
+	}
+	
+	@Override
+	public Iterable<CoronaVaccine> fetchAllDetailsByIds(List<Long> ids) {
+		return coronaRepo.findAllById(ids);
+	}
+	
+	@Override
+	public Optional<CoronaVaccine> fetchVaccineById(Long regNo) {
+		return coronaRepo.findById(regNo);
 	}
 	
 	
