@@ -13,4 +13,8 @@ public interface ICoronaVaccineMgmtService {
     public   Iterable<CoronaVaccine>  fetchAllDetails();
     public   Iterable<CoronaVaccine>  fetchAllDetailsByIds(List<Long> ids);
     public Optional<CoronaVaccine> fetchVaccineById(Long regNo);
+    public  String   removeVaccineById(Long id);
+    public  String   removeVaccineByObject(CoronaVaccine vaccine);
+    public  String   removeVaccinesByIds(Iterable<Long> ids);
+    public  String   removeAllVaccines();
 }

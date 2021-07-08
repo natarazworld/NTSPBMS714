@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import org.hibernate.exception.DataException;
 import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -115,16 +116,16 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 						dae.printStackTrace();
 					}*/
 		            
-		            CoronaVaccine vaccine=service.fetchVaccineById(22L).orElseThrow(()->new IllegalArgumentException("not available"));
-		            System.out.println(vaccine);
-		            System.out.println("=========================");
-		            CoronaVaccine vaccine1=service.fetchVaccineById(12L).orElse(new CoronaVaccine());
-		             System.out.println(vaccine1);
-		             System.out.println("=========================");
-		             
-			            CoronaVaccine vaccine3=service.fetchVaccineById(12L).orElseGet(()-> new CoronaVaccine());
-			             System.out.println(vaccine3);
-
+				/*     CoronaVaccine vaccine=service.fetchVaccineById(22L).orElseThrow(()->new IllegalArgumentException("not available"));
+				     System.out.println(vaccine);
+				     System.out.println("=========================");
+				     CoronaVaccine vaccine1=service.fetchVaccineById(12L).orElse(new CoronaVaccine());
+				      System.out.println(vaccine1);
+				      System.out.println("=========================");
+				      
+				         CoronaVaccine vaccine3=service.fetchVaccineById(12L).orElseGet(()-> new CoronaVaccine());
+				          System.out.println(vaccine3);
+				*/
 		             
 		
 		 //invoke methods
@@ -142,6 +143,36 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 			}*/
 		
 		
+			/*	   try {
+					   System.out.println(service.removeVaccineById(22L));
+				   }
+				   catch(DataAccessException dae) {
+					   dae.printStackTrace();
+				   }*/
+		
+			/*   try {
+				   CoronaVaccine vaccine=new CoronaVaccine();
+				   vaccine.setRegNo(23L);
+				   System.out.println(service.removeVaccineByObject(vaccine));
+			   }
+			   catch(DataAccessException dae) {
+				   dae.printStackTrace();
+			   }*/
+		
+			/*try {
+				  System.out.println(service.removeVaccinesByIds(List.of(34L,56L)));
+			   }
+			   catch(DataAccessException dae) {
+				   System.out.println("Problem in deleting records");
+				   dae.printStackTrace();
+			   }*/
+		
+		try {
+			System.out.println(service.removeAllVaccines());
+		   }
+		   catch(DataAccessException dae) {
+			   dae.printStackTrace();
+		   }
 		
 
 	}
