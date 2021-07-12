@@ -38,4 +38,14 @@ public class CoronaVaccineMgmtServiceImpl implements ICoronaVaccineMgmtService {
 		//return coronaRepo.getOne(regNo);
 	}
 
+	@Override
+	public String removeVaccinesByRegNos(Iterable<Long> regNos) {
+		Iterable<CoronaVaccine> listEntities=coronaRepo.findAllById(regNos);
+		if(((List)listEntities).size()!=0) {
+			coronaRepo.deleteAllByIdInBatch(regNos);
+			return  ((List)listEntities).size()+" no.of records are deleted";
+		}
+		return  "record not found for deletion"; 
+	}
+
 }//class

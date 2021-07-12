@@ -33,16 +33,23 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 			   dae.printStackTrace();
 		   }*/
 		
-		  try {
-			  CoronaVaccine  vaccine=service.getVaccineByRegNo(44L);
-			  if(vaccine!=null)
-				  System.out.println("vaccine details ::"+vaccine);
-			  else
-				  System.out.println("Record not found");
-		  }
-		  catch(DataAccessException dae) {
-			  dae.printStackTrace();
-		  }
+		/*	  try {
+				  CoronaVaccine  vaccine=service.getVaccineByRegNo(44L);
+				  if(vaccine!=null)
+					  System.out.println("vaccine details ::"+vaccine);
+				  else
+					  System.out.println("Record not found");
+			  }
+			  catch(DataAccessException dae) {
+				  dae.printStackTrace();
+			  }*/
+		
+		try {
+			System.out.println(service.removeVaccinesByRegNos(List.of(50L,44L,66L)));
+		}
+		catch(DataAccessException dae) {
+			dae.printStackTrace();
+		}
 		
 		
 		}//main
