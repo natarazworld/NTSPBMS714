@@ -34,11 +34,17 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 		  //service.searchVaccinesNotInCountries(List.of("china","pakistan")).forEach(System.out::println);
 		 // service.searchVaccinesByPriceAsc(400.0).forEach(System.out::println);
 		 //service.fetchVaccineNotFromCountry("china").forEach(System.out::println);
-		Optional<CoronaVaccine> opt=service.fetchVaccineByRegNo(44L);
+		/*Optional<CoronaVaccine> opt=service.fetchVaccineByRegNo(44L);
 		if(opt.isPresent())
 			System.out.println(opt.get());
 		else
-			System.out.println("record not found");
-		   
+			System.out.println("record not found");*/
+		//==================================================================
+		   //service.searchVaccincesByNameAndCountry("pyzer","USA").forEach(System.out::println);
+		   //service.searchVaccincesByNameInitCharaOrPriceRange("p%",400.0, 500.0).forEach(System.out::println);
+		   //service.searchVaccincesByCountriesAndPriceRange(List.of("USA","Russia","India"), 500.0, 700.0).forEach(System.out::println);
+		     service.searchVaccincesByCountriesAndNamesOrByPriceRange(List.of("India","USA","Russia"), 
+		    		                                                                                                                         List.of("sputnik","pyzer"), 
+		    		                                                                                                                         500.0).forEach(System.out::println);
 		}//main
 }//class

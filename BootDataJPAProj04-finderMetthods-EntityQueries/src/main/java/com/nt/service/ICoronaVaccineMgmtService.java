@@ -18,4 +18,8 @@ public interface ICoronaVaccineMgmtService {
 	 public  List<CoronaVaccine>  searchVaccinesByPriceAsc(double startPrice);
 	 public  List<CoronaVaccine>  fetchVaccineNotFromCountry(String country);
 	 public  Optional<CoronaVaccine>  fetchVaccineByRegNo(Long regNo);
+	 public  List<CoronaVaccine>  searchVaccincesByNameAndCountry(String name,String country);
+	 public  List<CoronaVaccine>  searchVaccincesByNameInitCharaOrPriceRange(String nameChars,double startRange,double endRange);
+	 public  List<CoronaVaccine>  searchVaccincesByCountriesAndPriceRange(List<String> countries,double startRange,double endRange);
+	 public  List<CoronaVaccine>  searchVaccincesByCountriesAndNamesOrByPriceRange(List<String> countries,List<String> names,double startRange);
 }
