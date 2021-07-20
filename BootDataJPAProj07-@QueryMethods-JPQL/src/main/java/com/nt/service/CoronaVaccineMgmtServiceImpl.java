@@ -1,6 +1,8 @@
 package com.nt.service;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +38,36 @@ public class CoronaVaccineMgmtServiceImpl implements ICoronaVaccineMgmtService {
 	@Override
 	public List<String> fetchVaccineNamesByPriceRange(double min, double max) {
 		return coronaRepo.searchVaccineNamesByPriceRange(min, max);
+	}
+	
+	@Override
+	public Optional<CoronaVaccine> fetchVaccineByName(String name) {
+		return coronaRepo.searchVaccineByName(name);
+	}
+	
+	@Override
+	public Object fetchVaccineDataByName(String name) {
+		return coronaRepo.searchVaccineDataByName(name);
+	}
+	
+	@Override
+	public String fetchVaccineCountryByName(String name) {
+		return coronaRepo.searchVaccineCountryByName(name);
+	}
+	
+	@Override
+	public long fetchVaccinesCount() {
+		return coronaRepo.getVaccinesCount();
+	}
+	
+	@Override
+	public Object fetchVaccineAggregateDetailsByPriceRange(double min, double max) {
+		return coronaRepo.getVaccinesAggregateDataByPriceRange(min, max);
+	}
+	
+	@Override
+	public int modifyVaccinePriceByCountry(double newPrice, String country) {
+		return coronaRepo.updatePriceByCountry(newPrice, country);
 	}
 	
 }//class
