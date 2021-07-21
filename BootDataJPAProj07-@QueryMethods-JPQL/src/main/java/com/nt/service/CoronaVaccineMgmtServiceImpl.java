@@ -1,10 +1,13 @@
 package com.nt.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.nt.entity.CoronaVaccine;
 import com.nt.repo.ICoronaVaccineRepo;
@@ -66,8 +69,29 @@ public class CoronaVaccineMgmtServiceImpl implements ICoronaVaccineMgmtService {
 	}
 	
 	@Override
+	@Transactional
 	public int modifyVaccinePriceByCountry(double newPrice, String country) {
 		return coronaRepo.updatePriceByCountry(newPrice, country);
+	}
+	
+	@Override
+	public int removeVaccinesByPriceRange(double startPrice, double endPrice) {
+		return coronaRepo.deleteVaccincesByPriceRange(startPrice, endPrice);
+	}
+	
+	@Override
+	public int registerVaccine(String company, String country, String name, double price, int dosesCount) {
+		return coronaRepo.insertVaccine( company, country, name, price, dosesCount);
+	}
+	
+	@Override
+	public Date fetchSystemDate() {
+		return coronaRepo.getSystemDate();
+	}
+	
+	@Override
+	public int createTempTable() {
+		return coronaRepo.createTempTable();
 	}
 	
 }//class

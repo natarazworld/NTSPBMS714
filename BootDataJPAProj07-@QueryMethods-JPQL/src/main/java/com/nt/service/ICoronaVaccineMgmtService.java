@@ -1,5 +1,6 @@
 package com.nt.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,4 +18,8 @@ public interface ICoronaVaccineMgmtService {
 	      public long  fetchVaccinesCount();
 	      public  Object fetchVaccineAggregateDetailsByPriceRange(double min ,double max);
 	      public  int modifyVaccinePriceByCountry(double newPrice ,String country);
+	      public   int removeVaccinesByPriceRange(double startPrice,double endPrice);
+	      public  int  registerVaccine(String company,String country,String name, double price, int dosesCount);
+	      public  Date   fetchSystemDate();
+	      public int   createTempTable();
 	 }

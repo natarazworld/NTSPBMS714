@@ -1,5 +1,6 @@
 package com.nt.repo;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -59,11 +60,34 @@ public interface ICoronaVaccineRepo extends JpaRepository<CoronaVaccine, Long> {
 	   public  long   getVaccinesCount();
 	  @Query("SELECT COUNT(*),MAX(price),MIN(price),SUM(price),AVG(price) FROM CoronaVaccine WHERE price>=:min AND price<=:max ")
 	  public Object  getVaccinesAggregateDataByPriceRange(double min,double max);
+	  
 	  //======================== NON- select opeations(DML Operations)=================
 	  @Modifying
 	  @Query("UPDATE CoronaVaccine SET price=:newPrice WHERE country=:country")
-	  @Transactional
+	 // @Transactional
 	  public  int   updatePriceByCountry(double newPrice, String country);
+	  
+	  @Modifying
+	  @Query("DELETE FROM CoronaVaccine  WHERE price BETWEEN :startPrice and :endPrice")
+	  @Transactional
+	  public  int   deleteVaccincesByPriceRange(double  startPrice,double  endPrice);
+	  
+	  //===========================  Native SQL Queries ===========================
+/*	   CREATE SEQUENCE  "SYSTEM"."VACCINE_REG_NO_SEQ"  MINVALUE 1000 MAXVALUE 100000 INCREMENT BY 1 START WITH 1000 CACHE 20 NOORDER  NOCYCLE ; */
+	  @Query(value="INSERT INTO CORONA_VACCINE VALUES(VACCINE_REG_NO_SEQ.NEXTVAL,?,?,?,?,?)",nativeQuery = true)
+	  @Modifying
+	  @Transactional
+	  public  int  insertVaccine(String company,String country,String name, double price, int dosesCount);
+	  
+	  @Query(value="SELECT SYSDATE FROM DUAL ",nativeQuery = true)
+	  public   Date   getSystemDate();
+	  
+	   @Query(value="CREATE TABLE TEMP1(col1 number(5), col2 varchar2(20))",nativeQuery = true)
+	   @Modifying
+	   @Transactional
+	  public  int   createTempTable();
+	  
+	  
 	  
 	
 }

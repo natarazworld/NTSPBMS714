@@ -64,10 +64,30 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 		 System.out.println("sum of price  (400 to 600)::"+result[3]);
 		 System.out.println("avg of price  (400 to 600)::"+result[4]);*/
 		
-		System.out.println("================Non-Select Opeations===============");
+		/*System.out.println("================Non-Select Opeations===============");
 		int count=service.modifyVaccinePriceByCountry(800.0,"Russia");
 		System.out.println("no.of records updated::"+count);
 		
+		 System.out.println("no.of vaccines deleted ::"+service.removeVaccinesByPriceRange(600.0, 800.0));
+		*/
+		 System.out.println("=====================Native SQL queries=======================");
+			int count=service.registerVaccine("russie1","Russia1","sputnik1",672.1,2);
+			if(count==0)
+			 System.out.println("record not inserted");
+			else
+			 System.out.println("record inserted");
+		 
+		 System.out.println(" sys date and time ::"+service.fetchSystemDate());
+		 
+		 int count1=service.createTempTable();
+		 System.out.println(count);
+		 if(count1==0)
+			 System.out.println("table created");
+		 else
+			 System.out.println("table not created");
+		 
+		 
+		 
 		
 		}//main
 }//class
