@@ -10,4 +10,11 @@ public interface ICustomerMgmtService {
     public  List<Object[]> fetchCustomersDataByCaddAndCname(String addrs,String name);
     public  List<Object[]> fetchCustomersDataByCaddOrCname(String addrs,String name);
     public  List<Object[]> fetchCustomersDataByBillAmtRange(double start, double end);
+    public  List<Customer>  fetchCustomersByRegCadd(String  addrs);
+    public  int  fetchCustomersCountByBillAmountRange(double start,double end);
+    public  List<Customer> fetchCustomersSortedByBillAmount();
+    public  int removeCustomersWithNoBillAmt();
+    public  boolean checkCustomersExisitenceWithBillAmountRange(double start,double end);
+    
+    
 }

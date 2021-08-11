@@ -38,5 +38,31 @@ public class CustomerMgmtServiceImpl implements ICustomerMgmtService {
 	public List<Object[]> fetchCustomersDataByBillAmtRange(double start, double end) {
 		return custRepo.getCustomersDataByBillAmtRange(start, end);
 	}
+	
+	@Override
+	public List<Customer> fetchCustomersByRegCadd(String addrs) {
+		return custRepo.getCustomersByRegCadd(addrs);
+	}
+	
+	@Override
+	public int fetchCustomersCountByBillAmountRange(double start, double end) {
+		return custRepo.getCustomersCountByBillAmtRange(start, end);
+	}
+	
+	@Override
+	public List<Customer> fetchCustomersSortedByBillAmount() {
+		return custRepo.getCustomersByBillAmountSorted();
+	}
+	
+	@Override
+	public int removeCustomersWithNoBillAmt() {
+		return custRepo.deleteCustomersWithNoBillAmt();
+	}
+	
+	@Override
+	public boolean checkCustomersExisitenceWithBillAmountRange(double start, double end) {
+		return custRepo.areThereCustomersWithBillAmountRange(start, end);
+	}
+
 
 }

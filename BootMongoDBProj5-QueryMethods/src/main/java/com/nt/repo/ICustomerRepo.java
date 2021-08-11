@@ -28,8 +28,26 @@ public interface ICustomerRepo extends MongoRepository<Customer,String > {
 	public  List<Object[]>   getCustomersDataByBillAmtRange(double start, double end);
 	
 	
+	@Query(value="{ cadd: {$regex:?0}}")
+	public List<Customer>  getCustomersByRegCadd(String addrs);
+	
+	@Query(value = "{billAmt:{$gte:?0,$lte:?1}}",count = true)
+	public int   getCustomersCountByBillAmtRange(double start,double end);
+	
+	@Query(value="{}", sort="{ billAmt:-1}" )
+	public   List<Customer> getCustomersByBillAmountSorted();
+	
+	@Query(value="{billAmt: null}", delete = true )
+	public   int deleteCustomersWithNoBillAmt();
+	
+	@Query(value="{billAmt:{$gte:?0,$lte:?1} }", exists = true )
+	public  boolean  areThereCustomersWithBillAmountRange(double start,double end);
+	
+	
+		
 	
 	
 	
-
+	
+	
 }
