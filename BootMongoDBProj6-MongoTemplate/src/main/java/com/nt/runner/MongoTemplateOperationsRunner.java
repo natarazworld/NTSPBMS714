@@ -41,7 +41,16 @@ public class MongoTemplateOperationsRunner implements CommandLineRunner {
          System.out.println(msg);*/
     //--------------------------------------find methods for select opeations ----------------------------
          //service.getAllActors().forEach(System.out::println);
-		  service.getActorsByCategory("hero").forEach(System.out::println);
+		 // service.getActorsByCategory("hero").forEach(System.out::println);
+		//System.out.println(service.getActorByActorId(163421));
+		
+		//-----------------------   findAndModify , updateMulti methods  for  update operations------------
+		//System.out.println(service.updateActorByActorId(163421, "mumbai",9999999999L));
+		 // System.out.println(service.updateActorsRenumerationByCategoryAndAge("hero", 40.0f, 10000000.0));
+		//out.println(service.saveOrUpdateActorByRenumeration(50000000.0, 1000000000.0, "hyd",34.0f , 53455345354L));
+		
+		//-----------------------   findAndRemove , findAllAndRemove methods  for delete operations------------
+		   System.out.println(service.removeDocByAge(34.0f));
 	}
 
 }

@@ -17,6 +17,7 @@ public class Actor {
 	private String actorName;
 	private  String category;
 	private  Float  age;
+	private  String actorAddrs;
 	private  Long mobileNo;
 
 }
