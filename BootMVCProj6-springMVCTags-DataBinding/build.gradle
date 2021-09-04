@@ -1,7 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.5.3'
+	id 'org.springframework.boot' version '2.5.4'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'war'
 }
 
 group = 'nit'
@@ -19,14 +20,11 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	
-	// https://mvnrepository.com/artifact/org.springframework/spring-webmvc
-implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.9'
-	
 }
 
 test {
