@@ -24,4 +24,20 @@ public class EmployeeMgmtServiceImpl  implements IEmployeeMgmtService {
 	  		return "Employee inserted with id value:: "+ empRepo.save(emp).getEmpno();
 	}
 
+	@Override
+	public Employee getEmployeeByEno(int eno) {
+		return empRepo.findById(eno).get();
+	}
+	
+	@Override
+	public String updateEmployee(Employee emp) {
+		return  empRepo.save(emp).getEmpno()+" Employee updated";
+	}
+	
+	@Override
+	public String deleteEmployeeByEno(int eno) {
+		empRepo.deleteById(eno);
+		return eno+"  employee number  Employee deleted";
+	}
+
 }
