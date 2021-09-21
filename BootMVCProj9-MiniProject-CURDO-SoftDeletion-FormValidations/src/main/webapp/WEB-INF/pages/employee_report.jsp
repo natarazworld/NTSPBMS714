@@ -21,12 +21,26 @@
                 </c:forEach>
                 </table>
                  <br><br>
-    <p style="text-align:center">                 
+   <p style="text-align:center">
+                <c:if  test="${!pageData.isFirst() }">                
+                     <a href="emp_report?page=0">[first]</a> &nbsp;&nbsp;
+                 </c:if>
+                 <c:if  test="${!pageData.isLast()}" >
+                 <a href="emp_report?page=${pageData.getNumber()+1}">[next]</a> &nbsp;&nbsp;
+                 </c:if>
+                 
+                  
                 <c:forEach var="i" begin="1" end="${pageData.getTotalPages()}" step="1">
                         [<a href="emp_report?page=${i-1}">${i}</a> ] &nbsp; &nbsp;
                 </c:forEach>
-   </p>                 
-       
+            
+     <c:if  test="${!pageData.isLast() }">               
+         <a href="emp_report?page=${pageData.getTotalPages()-1}">[last]</a> &nbsp;&nbsp;
+      </c:if>
+                 <c:if  test="${!pageData.isFirst()}" >
+                          <a href="emp_report?page=${pageData.getNumber()-1}">[previous]</a> &nbsp;&nbsp;
+                 </c:if>
+          </p>     
    </c:when>
    <c:otherwise>
            <h1 style="color:red;text-align:center"> Records  not  found </h1>

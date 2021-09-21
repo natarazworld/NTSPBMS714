@@ -43,7 +43,7 @@ public class EmployeeController {
 		}*/
 	
 	@GetMapping("/emp_report")
-	public  String   showEmployeeReport(@PageableDefault(page=0,size = 3,sort = "job",direction = Direction.ASC) Pageable pageable,
+	public  String   showEmployeeReport(@PageableDefault(page=0,size = 3,sort = "empno",direction = Direction.ASC) Pageable pageable,
 	                                                                          Map <String,Object> map) {
 		//use service
 		Page<Employee> page=service.getEmployeesPageData(pageable);
