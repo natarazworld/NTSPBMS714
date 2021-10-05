@@ -12,8 +12,8 @@
                     <td>${seeker.profileId}  </td>
                     <td>${seeker.profileName}  </td>
                     <td>${seeker.gender}  </td>
-                    <td><a href="download?file=${seeker.resumePath}">${seeker.resumePath} </a> </td>
-                    <td><a href="download?file=${seeker.photoPath}">${seeker.photoPath}  </a></td>
+                    <td><a href="download?file=${seeker.resumePath}">${fn:substringAfter(seeker.resumePath,'E:/store/')} </a> </td>
+                    <td><a href="download?file=${seeker.photoPath}">${fn:substringAfter(seeker.photoPath,'E:/store/')}  </a></td>
                  </tr>
            </c:forEach>
       </table>

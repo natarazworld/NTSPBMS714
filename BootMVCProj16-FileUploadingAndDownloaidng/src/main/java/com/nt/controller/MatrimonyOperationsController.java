@@ -1,10 +1,14 @@
 package com.nt.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Map;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.nt.entity.MarriageSeekerInfo;
@@ -86,5 +91,34 @@ public class MatrimonyOperationsController {
 		//return LVN
 		return  "show_profiles";
 	}
+
+	@Autowired
+	private ServletContext sc;
+	@GetMapping("/download")
+	public   String  fileDownload(@RequestParam("file") String filePath,
+			                                                 HttpServletResponse res)throws Exception{
+		//create java.io.File object pointing to the file to download
+		File file=new File(filePath);
+		//get the length of the file and make it as the response content  length
+		res.setContentLengthLong(file.length());
+		//get the MIME of the file to be downloaded and make it as the response content  type
+		String mimeType=sc.getMimeType(filePath);
+		mimeType=mimeType!=null?mimeType:"application/octet-stream";
+		res.setContentType(mimeType);
+		//create InputStream pointing to the file to be downloaded
+		InputStream is=new FileInputStream(filePath);
+		//create OutputStream pointing to the response object
+		OutputStream os=res.getOutputStream();
+		//give instruction to browser to make the recieved content as the downloadable file
+		res.setHeader("Content-Disposition","attachment;fileName="+file.getName());
+		// copy file to be download content to response object
+		 IOUtils.copy(is, os);
+		 //close streams
+		 is.close();
+		 os.close();
+		return null;  // This indicates response should go to browser directly 
+		                         //with out taking the support of  ViewResolver and View comps.
+	}
+	
 	
 }

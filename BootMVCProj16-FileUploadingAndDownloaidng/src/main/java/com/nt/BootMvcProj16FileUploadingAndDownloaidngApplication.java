@@ -12,8 +12,8 @@ public class BootMvcProj16FileUploadingAndDownloaidngApplication {
 	@Bean("multipartResolver")
 	public  CommonsMultipartResolver createCMResolver() {
 		CommonsMultipartResolver resolver=new CommonsMultipartResolver();
-		resolver.setMaxUploadSize(-1);
-		resolver.setMaxUploadSizePerFile(20*1024);
+		resolver.setMaxUploadSize(-1);  // -1 indicates no limit
+		resolver.setMaxUploadSizePerFile(20*1024*1024);  //-1 inddicates no limit
 		resolver.setPreserveFilename(true);
 		return resolver;
 	
