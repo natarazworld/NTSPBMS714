@@ -1,7 +1,7 @@
 <%@ page isELIgnored="false" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<h1 style="color:blue;text-align:center">Edit Employee </h1>
+<h1 style="color:blue;text-align:center">Edit Employee Details </h1>
 
 <form:form  modelAttribute="emp">
     <table border="0" bgcolor="cyan" align="center">

@@ -21,5 +21,6 @@ public class Employee {
 	private  String job;
 	private  Float sal;
 	private  Integer deptno=10;
+	
 
 }
