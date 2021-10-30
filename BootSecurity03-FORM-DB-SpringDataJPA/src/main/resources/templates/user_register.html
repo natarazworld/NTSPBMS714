@@ -1,0 +1,29 @@
+<html xmlns:th="https://thymeleaf.org">    
+
+<form th:action="@{/user/register}"  th:object="${userInfo}" method="POST">
+    <table border="0" bgcolor="cyan"  align="center">
+        <tr>
+               <td>  username :: </td>
+               <td>  <input type="text" th:field="*{uname}" /> </td>
+        </tr>
+         <tr>
+               <td> password :: </td>
+               <td>  <input type="password" th:field="*{pwd}" /> </td>
+        </tr>
+        <tr>
+               <td> email :: </td>
+               <td>  <input type="text" th:field="*{email}" /> </td>
+        </tr>
+        <tr>
+               <td> Roles: </td>
+               <td>  <input type="checkbox" th:field="*{roles}" value="CUSTOMER" checked > CUSTOMER
+                         <input type="checkbox" th:field="*{roles}" value="MANAGER" > MANAGER
+                </td>
+        </tr>
+        <tr>
+               <td> <input type="submit"  value="register"> </td>
+               <td> <input type="reset"  value="cancel"> </td> 
+        </tr>
+    
+    </table>
+</form>
