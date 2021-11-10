@@ -1,0 +1,35 @@
+<html xmlns:th="https://thymeleaf.org">    
+
+<h1 style="color:blue;text-align:center">Edit Employee </h1>
+
+<form th:action="@{/employee/edit_employee}"  th:object="${emp}"  method="POST">
+    <table border="0" bgcolor="cyan" align="center">
+    <tr>
+           <td>  Employee eno :: </td>
+           <td>  <input type="text" th:field="*{empno}"  readonly="true"/> </td>
+        </tr>
+        <tr>
+           <td>  Employee name :: </td>
+           <td>  <input type="text" th:field="*{ename}"/>  </td>
+        </tr>
+        <tr>
+           <td>  Employee Desg :: </td>
+           <td>  <input type="text" th:field="*{job}"/> </td>
+        </tr>
+        <tr>
+           <td>  Employee Salary :: </td>
+           <td>  <input type="text" th:field="*{sal}"/> </td>
+        </tr>
+        <tr>
+           <td>  Employee Dept no :: </td>
+           <td>  <input type="text" th:field="*{deptno}"/> </td>
+        </tr>
+        <tr>
+           <td> <input type="submit"  value="Edit Employee" > </td>
+           <td> <button  type="reset" > Cancel</button>  </td>
+        </tr>
+    </table>
+</form>
+
+
+

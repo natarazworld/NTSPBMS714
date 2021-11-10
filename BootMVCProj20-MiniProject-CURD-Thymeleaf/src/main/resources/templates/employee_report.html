@@ -1,0 +1,30 @@
+<html xmlns:th="https://thymeleaf.org">    
+
+  <div  th:if="${!empsList.empty}">
+       <table  border="1"  bgcolor="cyan"  align="center"> 
+                <tr bgcolor="pink">
+                   <th>eno </th> <th>ename </th> <th>desg</th> <th>salary </th> <th>deptNo </th> <th>operations </th>
+                </tr>
+                <tr  th:each="emp:${empsList}">
+                        <td><span th:text="${emp.empno}"/> </td>
+                        <td><span th:text="${emp.ename}"/>  </td>
+                        <td><span th:text="${emp.job}"/>  </td>
+                        <td><span th:text="${emp.sal}"/>  </td>
+                        <td><span th:text="${emp.deptno}"/>  </td>
+                        <td><a th:href="@{/employee/edit_employee(eno=${emp.empno})}"><img th:src="@{/images/edit1.png}" width="50" height="50"> &nbsp;&nbsp;</a>
+                                <a th:href="@{/employee/delete_employee(eno=${emp.empno})}" onclick="confirm('Do u want to delete')"><img th:src="@{/images/delete1.jpg}" width="50" height="50"></a> 
+                         </td>
+                     </tr>
+       </table>
+       </div>
+   <div th:if="${empsList.empty}">
+           <h1 style="color:red;text-align:center"> Records  not  found </h1>
+   </div>
+                 <blink><h1 style="color:green;text-align:center" th:text="${resultMsg}"/> </blink>
+ <br>
+   <h1 style="text-align:center"><a th:href="@{/employee/insert_employee}">Add Employee <img th:src="@{/images/add.png}"/></a> </h1>
+   
+ <br>
+ <br>
+  <h1 style="text-align:center"><a th:href="@{/employee/}">home  <img th:src="@{/images/home1.png}"/> </a></h1>
+ 
