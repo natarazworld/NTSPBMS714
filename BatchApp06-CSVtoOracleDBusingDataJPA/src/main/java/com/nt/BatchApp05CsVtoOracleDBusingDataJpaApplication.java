@@ -2,14 +2,12 @@ package com.nt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableScheduling
-public class BatchApp1PocApplication {
+public class BatchApp05CsVtoOracleDBusingDataJpaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BatchApp1PocApplication.class, args);
+		SpringApplication.run(BatchApp05CsVtoOracleDBusingDataJpaApplication.class, args);
 	}
 
 }

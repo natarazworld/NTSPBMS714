@@ -13,16 +13,15 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-//@Component
-public class BatchProcessingTestRunner implements CommandLineRunner {
+@Component
+public class BatchProcessingTest  {
 	@Autowired
 	private  JobLauncher launcher;
 	@Autowired
 	private  Job job;
 
-	@Override
 	@Scheduled(cron = "${cron.expr}")
-	public void run(String... args) throws Exception {
+	public void runJob() throws Exception  {
 		//prepare  Job Parameters
 		JobParameters params=new JobParametersBuilder()
 				                                        .addLong("time",System.currentTimeMillis()).toJobParameters();
