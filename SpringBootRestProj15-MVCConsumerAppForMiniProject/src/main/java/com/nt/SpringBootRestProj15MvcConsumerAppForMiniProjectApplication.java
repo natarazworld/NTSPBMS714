@@ -6,11 +6,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class SpringBootRestProj10MiniProject01CurdOperationsApplication {
-	
+public class SpringBootRestProj15MvcConsumerAppForMiniProjectApplication {
+
+	@Bean
+	public  RestTemplate   createTemplate() {
+		return new RestTemplate();
+	}
+
 	
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootRestProj10MiniProject01CurdOperationsApplication.class, args);
+		SpringApplication.run(SpringBootRestProj15MvcConsumerAppForMiniProjectApplication.class, args);
 	}
 
 }

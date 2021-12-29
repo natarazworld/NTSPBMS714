@@ -34,16 +34,14 @@ public class TouristOperationsController {
 	}//method
 	
 	@GetMapping("/findAll")
-	public  ResponseEntity<?>  displayToursits() throws Exception{
+	public  ResponseEntity<List<Tourist>>  displayToursits() throws Exception{
 			 List<Tourist> list=service.fetchAllTourists();
 			return new ResponseEntity<List<Tourist>>(list,HttpStatus.OK);
 	}
 	
 	@GetMapping("/find/{id}")
 	public  ResponseEntity<?> displayTouristById(@PathVariable("id") Integer id)throws Exception{
-		System.out.println("TouristOperationsController.displayTouristById() --before");
 		 Tourist  tourist=service.fetchTouristById(id);
-		 System.out.println("TouristOperationsController.displayTouristById() --after");
 			return new ResponseEntity<Tourist>(tourist,HttpStatus.OK);
 		
 	}//method
